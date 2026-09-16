@@ -11,8 +11,9 @@
 # 1. The machine's temperature in degrees Celsius (integer).
 # 2. The machine's pressure in PSI (integer).
 # 3. The machine's operational status (1 for operating, 0 for stopped) (integer).
-
-
+temperature = int(input("Enter the machine's temperature in °C: "))
+pressure = int(input("Enter the machine's pressure in PSI: "))
+operational_status = int(input("Enter the machine's operational status (1 for operating, 0 for stopped): "))
 
 # Step 2: Evaluate the Machine's Conditions
 # Use conditional statements (if, elif, else) to evaluate the following conditions:
@@ -21,11 +22,22 @@
 #  - If the temperature is above 80°C, alert that the temperature is too high and recommend shutting down the machine.
 #  - If the temperature is between 50°C and 80°C, indicate that the temperature is within safe limits.
 #  - If the temperature is below 50°C, indicate that the machine temperature is low and no action is needed.
-
+if temperature > 80:
+    print("Alert: The temperature is too high! Recommend shutting down the machine.")
+elif 50 <= temperature <= 80:
+    print("The temperature is within safe limits.")
+else:   
+    print("The machine temperature is low. No action needed.")
 # For pressure:
 #  - If the pressure exceeds 100 PSI, alert that high pressure is detected and recommend maintenance.
 #  - If the pressure is between 70 PSI and 100 PSI, indicate that the pressure is stable.
 #  - If the pressure is below 70 PSI, indicate that the pressure is low and the system is operating normally.
+if pressure > 100:
+    print("Alert: High pressure detected! Recommend maintenance.")
+elif 70 <= pressure <= 100:
+    print("The pressure is stable.")
+else:
+    print("The pressure is low. The system is operating normally.")
 
 
 
@@ -36,7 +48,13 @@
 #   - If everything is normal, indicate that the machine is running normally.
 # - If the machine is not operating (0):
 #   - Indicate that the machine is stopped and no immediate action is needed.
-
+if operational_status == 1:
+    if temperature > 80 or pressure > 100:
+        print("Alert: The machine is running in unsafe conditions! Recommend shutting it down.")
+    else:
+        print("The machine is running normally.")
+else:
+    print("The machine is stopped. No immediate action is needed.")
 # Step 4: Test Your Program
 # After completing your program, test it with different inputs to ensure it behaves correctly based on the conditions you implemented.
 
