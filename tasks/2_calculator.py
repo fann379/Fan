@@ -13,4 +13,4 @@ answer = number1 + number2
 
 
 # print out the answer
-print(answer)
+print(f"{answer:g}")
